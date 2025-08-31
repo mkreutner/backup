@@ -5,6 +5,6 @@
 
 # Check
 if [ $# -ne 2 ]; then
-    echo "give target directory: $0 /full/path/FROM/without/trailing/slash /full/path/TO/without/trailing/slash"
+    echo "Please, give FROM and TO directories: $0 /full/path/FROM/without/trailing/slash /full/path/TO/without/trailing/slash"
     exit 1
 fi
