@@ -16,7 +16,7 @@ $ ./scripts/backup.sh /full/path/to/target/directory/without/trailing/slash
 ### Restore
 
 ```shell
-$ ./scripts/restor.sh /full/path/from/target/directory/without/trailing/slash /full/path/to/restore/without/trailing/slash
+$ ./scripts/restore.sh /full/path/from/target/directory/without/trailing/slash /full/path/to/restore/without/trailing/slash
 ```
 
 ## Todo
