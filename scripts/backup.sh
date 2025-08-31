@@ -6,6 +6,7 @@
 # Check
 if [ $# -ne 1 ]; then
     echo "give target directory: $0 /full/path/where/to/copy/data"
+    exit 1
 fi
 
 # What to backup
