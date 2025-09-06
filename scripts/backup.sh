@@ -3,12 +3,6 @@
 # Desc: Backup script to destination folder
 ##############################################################################
 
-# Check
-if [ $# -ne 1 ]; then
-    echo "Please, give target directory: $0 /full/path/where/to/copy/data"
-    exit 1
-fi
-
 # What to backup
 src_dirs="\
 $HOME/.config/i3 \
@@ -33,21 +27,24 @@ $HOME/Pictures \
 day=$(date +%Y%m%d)
 hostname=$(hostname -s)
 username=$(id -u -n)
-dst_dir="$1/$hostname/$username/$day"
+archname="${HOME}/backup/${hostname}_${username}_${day}.tgz"
+tmpdir="${HOME}/backup/tmp/${hostname}/${username}/${day}"
 
-if [ ! -d $dst_dir ]; then
-    echo "ℹ️  - Create destination directory"
-    mkdir -p $dst_dir
+if [ ! -d $tmpdir ]; then
+    echo "ℹ️  - Create temporary directory"
+    mkdir -p $tmpdir
 fi
 
 for target in $src_dirs;
 do
     if [ -d $target ]; then
-        mkdir -p $dst_dir$target && cp -r "$target" "$_/.."
+        mkdir -p ${tmpdir}/${target} && cp -r "${target}" "$_/.."
     else
-        cp $target $dst_dir
+        cp ${target} ${tmpdir}
     fi
 done
 
-# Display destination
-tree -al $dst_dir
+# Create archive
+tar -czvf $archname $tmpdir
+
+rm -rf $tmpdir
