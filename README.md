@@ -5,24 +5,24 @@ Very basic scripts to backup and restore my home
 
 ### Edit what you want backup / restore file
 
-Edit `src_dirs` variable at begin of `backup.sh` (`restore.sh`) file
+Edit `src_dirs` variable at begin of `backup.sh` file
 
 ### Backup
 
 ```shell
-$ ./scripts/backup.sh /full/path/to/target/directory/without/trailing/slash
+$ ./scripts/backup.sh
 ```
 
 ### Restore
 
 ```shell
-$ ./scripts/restore.sh /full/path/from/target/directory/without/trailing/slash /full/path/to/restore/without/trailing/slash
+$ ./scripts/restore.sh /full/path/to/archive.tgz
 ```
 
 ## Todo
 
 - [X] - Backup script
-- [ ] - Restore script
+- [X] - Restore script
 - [ ] - Use Python ?
 - [ ] - Use a config file to describe what you want to backup / restore.
 
