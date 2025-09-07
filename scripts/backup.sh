@@ -6,6 +6,7 @@
 # What to backup
 src_dirs="\
 $HOME/.config/i3 \
+$HOME/.config/btop \
 $HOME/.ssh \
 $HOME/.xinitrc \
 $HOME/.Xresources \
